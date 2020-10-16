@@ -72,7 +72,7 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
     // Questions list 
     var Quest = [
         {
-            quest: 'Java and Javascript the same language?',
+            quest: "Java and Javascript the same language?",
             ans: {
                 a: 'True',
                 b: 'False',
@@ -102,72 +102,72 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
             correctAns: 'b'
         },
         {
-            quest: "what is computers?",
+            quest: "What name was Javascript developed under?",
             ans: {
 
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
+                a: 'Ella',
+                b: 'SnowMan',
+                c: 'Mocha',
             },
             correctAns: 'c'
         },
         {
-            quest: "what is computers?",
+            quest: "who built Javascript?",
             ans: {
 
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
+                a: 'Steve Jobs',
+                b: 'Brendan Eich',
+                c: 'Bill Gates',
+            },
+            correctAns: 'b'
+        },
+        {
+            quest: "How long did it take to create Javascript?",
+            ans: {
+
+                a: '10 days',
+                b: '30 days',
+                c: '20 days',
+            },
+            correctAns: 'a'
+        },
+        {
+            quest: "Where did the creater of Javascript work?",
+            ans: {
+
+                a: 'Microsoft',
+                b: 'Netscape',
+                c: 'Mozilla',
+            },
+            correctAns: 'b'
+        },
+        {
+            quest: "Javascript was developed in what year?",
+            ans: {
+
+                a: '1997',
+                b: '1996',
+                c: '1995',
             },
             correctAns: 'c'
         },
         {
-            quest: "what is computers?",
+            quest: "Does Javascript have a integer data type?",
             ans: {
 
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
+                a: 'True',
+                b: 'False',
+                c: 'Maybe',
             },
-            correctAns: 'c'
+            correctAns: 'b'
         },
         {
-            quest: "what is computers?",
+            quest: "What symbols do you use to make arrays?",
             ans: {
 
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
-            },
-            correctAns: 'c'
-        },
-        {
-            quest: "what is computers?",
-            ans: {
-
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
-            },
-            correctAns: 'c'
-        },
-        {
-            quest: "what is computers?",
-            ans: {
-
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
-            },
-            correctAns: 'c'
-        },
-        {
-            quest: "what is computers?",
-            ans: {
-
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
+                a: '{}',
+                b: '||',
+                c: '[]',
             },
             correctAns: 'c'
         },
