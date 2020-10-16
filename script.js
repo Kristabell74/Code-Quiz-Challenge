@@ -48,7 +48,7 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
             ansContainers[i].style.color = 'purple';
 
         }
-        
+
         else {
 
             ansContainers[i].style.color = 'Orange';
@@ -72,34 +72,34 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
     // Questions list 
     var Quest = [
         {
-            quest: 'What day is it',
+            quest: 'Java and Javascript the same language?',
             ans: {
-                a: 'Monday',
-                b: 'Tuesday',
-                c: 'Thursday',
+                a: 'True',
+                b: 'False',
+                c: 'Some of it is the same',
 
             },
-            correctAns: 'c'
+            correctAns: 'a'
         },
         {
-            quest: "what is computers?",
+            quest: "What web browser does not support Javascript?",
             ans: {
 
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
+                a: 'Lynx',
+                b: 'Konqueror',
+                c: 'Opera',
             },
-            correctAns: 'c'
+            correctAns: 'a'
         },
         {
-            quest: "what is computers?",
+            quest: "What does NaN stand for in Javascript?",
             ans: {
 
-                a: 'triple',
-                b: 'drink',
-                c: 'pie',
+                a: 'NewandNeccesary',
+                b: 'NotaNumber',
+                c: 'None of the above',
             },
-            correctAns: 'c'
+            correctAns: 'b'
         },
         {
             quest: "what is computers?",
