@@ -1,163 +1,179 @@
-function generateQuiz(questions, timer, counter, quizContainer, resultsContainer, submitButton) {
+function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, submitButton) {
 
-    //code
-}
-
-function showQuestions(questions, quizContainer) {
-    //stores the output and answers
-    var output = [];
-    var answers;
-}
-
-function showResults(questions, quizContainer, resultsContainer) {
-
-    var answerContainers = quizContainer.querySelectorAll('.answers');
-
-    var userAnswer = '';
-    varnumcorrect = 0;
-}
-for (var i = o; i < questions.length; i++) {
-
-    userAnswer = (answerContainers[i].querySelectorAll('input[name=question' + i + ']:checked') || {}).value;
-
-    if (UserAnswer === questions[i].correctAnswer) {
-
-        numCorrect++;
+    function showQuest(quest, quizContainer) {
+        //stores the output and answers
+        var output = [];
+        var ans;
 
 
-        answerContainers[i].style.color = 'purple';
+        for (var i = 0; i < quest.length; i++) {
+            //answer storage
+            answers = [];
+            for (Letter in quest[i].answers) {
+                //answer push
+                ans.push(
+                    '<label>'
+                    + '<input type="radio" name="question' + i + '" value="' + letter + '">'
+                    + letter + ':'
+                    + quest[i].ans[letter]
+
+                    + '</label>'
+                );
+            }
+
+            //this helps the output
+            output.push(
+                '<div class="question">' + quest[i].question + '</div>'
+                + '<div class="ans">' + ans.join('') + '</div>'
+            );
+        }
+        quizContainer.innerHTML = output.join('');
+    }
+    function showResults(quest, quizContainer, resultsContainer) {
+
+        var ansContainers = quizContainer.querySelectorAll('.ans');
+
+        var userAns = '';
+        varnumcorrect = 0;
+    }
+    for (var i = o; i < quest.length; i++) {
+
+        userAns = (ansContainers[i].querySelectorAll('input[name=quest' + i + ']:checked') || {}).value;
+
+        if (UserAns === quest[i].correctAns) {
+
+            numCorrect++;
+
+
+            ansContainers[i].style.color = 'purple';
+
+        }
+        
+        else {
+
+            ansContainers[i].style.color = 'Orange';
+
+        }
+    }
+    resultsContainer.innerHtml = numCorrect + 'out of' + quest.length;
+
+    //Quiz Questions
+    showQuest(quest, quizContainer); {
+
 
     }
 
-    else {
 
-        answerContainers[i].style.color = 'Orange';
+    //push button for results. A place for the results
 
+    submitButton.onclick = function () {
+        showResults(quest, quizContainer, resultsContainer);
     }
+    // Questions list 
+    var Quest = [
+        {
+            quest: 'What day is it',
+            ans: {
+                a: 'Monday',
+                b: 'Tuesday',
+                c: 'Thursday',
+
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+        {
+            quest: "what is computers?",
+            ans: {
+
+                a: 'triple',
+                b: 'drink',
+                c: 'pie',
+            },
+            correctAns: 'c'
+        },
+    ]
 }
-resultsContainer.innerHtml = numCorrect + 'out of' + questions.length;
 
-//Quiz Questions
-showQuestions(questions, quizContainer);
-
-
-//push button for results. A place for the results
-
-submitButton.onclick = function () {
-    showResults(questions, quizContainer, resultsContainer);
-}
-
-// Questions list 
-
-var theQuestions = [
-
-    {
-        question: 'What day is it',
-        answers: {
-            a: 'Monday',
-            b: 'Tuesday',
-            c: 'Thursday',
-
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-    {
-        question: "what is computers?",
-        answers: {
-
-            a: 'triple',
-            b: 'drink',
-            c: 'pie',
-        },
-        correctAnswer: 'c'
-    },
-
-
-
-
-
-
-]
 //A timer
 //A Counter
 //A Submit Button
