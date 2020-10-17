@@ -1,67 +1,53 @@
-function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, submitButton) {
+function generateQuiz(question, timer, quizContainer, resultsContainer, submitButton) {
 
-    function showQuest(quest, quizContainer) {
+    function showQuestion(question, quizContainer) {
         //stores the output and answers
-        var output = [];
-        var ans;
-        var quest;
-        var correctAns;
+
+        var question;
+        var wrongAnswer;
         var button;
+        var correctAnswer;
+        var resultsContainer;
+        var timer;
 
 
-        for (var i = 0; i < quest.length; i++) {
-            //answer storage
-            answers = [];
-            for (Letter in quest[i].answers) {
-                //answer push
-                ans.push(
-                    '<label>'
-                    + '<input type="radio" name="question' + i + '" value="' + letter + '">'
-                    + letter + ':'
-                    + quest[i].ans[letter]
-
-                    + '</label>'
-                );
-            }
-
-            //this helps the output
-            output.push(
-                '<div class="question">' + quest[i].question + '</div>'
-                + '<div class="ans">' + ans.join('') + '</div>'
-            );
-        }
         quizContainer.innerHTML = output.join('');
     }
-    function showResults(quest, quizContainer, resultsContainer) {
+    function showResults(question, quizContainer, resultsContainer) {
 
-        var ansContainers = quizContainer.querySelectorAll('.ans');
+        var answerContainers = quizContainer.querySelectorAll('.answer');
 
-        var userAns = '';
-        varnumcorrect = 0;
+        //User answer to question
+        var userAnswer = '';
+        //Stores number of correct answers
+        var numcorrect = (i);
     }
-    for (var i = o; i < quest.length; i++) {
 
-        userAns = (ansContainers[i].querySelectorAll('input[name=quest' + i + ']:checked') || {}).value;
+    for (var i = o; i < question.length; i++) {
 
-        if (UserAns === quest[i].correctAns) {
+        userAnswer = (ansContainers[i].querySelectorAll('input[name=question' + i + ']:checked') || {}).value;
+
+        if (UserAnswer === question[i].correctAnswer) {
 
             numCorrect++;
 
-
-            ansContainers[i].style.color = 'purple';
+            // in answer correct purple
+            answerContainers[i].style.color = 'purple';
 
         }
 
         else {
-
-            ansContainers[i].style.color = 'Orange';
+            //if answer incorrect orange
+            answerContainers[i].style.color = 'Orange';
 
         }
     }
-    resultsContainer.innerHtml = numCorrect + 'out of' + quest.length;
+    resultsContainer.innerHtml()
+    for (var i = o; i <)
+        if (numberCorrect.isAuthenticated(funtion + output());
 
     //Quiz Questions
-    showQuest(quest, quizContainer); {
+    showQuestion(question, quizContainer); {
 
 
     }
@@ -199,35 +185,27 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
             },
             correctAns: 'c'
         },
-        // Buttons
-        $(".theme-button").on("click", function () {
-            audioElement.play();
+
+
+
+
+        //Click button and get it to push into the numcorrect storage
+        $(".a-button").on("click", function () {
+            audioElement.answer(); Push.numCorrect
+            if (correct)
+            
         });
-    $(".pause-button").on("click", function () {
-        audioElement.pause();
-    });
 
-    // Size Buttons
-    $(".normal-button").on("click", function () {
-        captainPlanet.animate({ height: "300px" });
-    });
-    $(".grow-button").on("click", function () {
-        captainPlanet.animate({ height: "500px" });
-    });
-    $(".shrink-button").on("click", function () {
-        captainPlanet.animate({ height: "100px" });
-    });
+    $(".b-button").on("click", function () {
+        audioElement.answer();
 
-    // Visibility Buttons
-    $(".vis-button").on("click", function () {
-        captainPlanet.animate({ opacity: "1" });
-    });
-    $(".invis-button").on("click", function () {
-        captainPlanet.animate({ opacity: "0.05" });
-    });
+        $(".c-button").on("click", function () {
+            audioElement.answer();
+        });
+
 
     ]
-}
+    }
 
 
 //A Counter
