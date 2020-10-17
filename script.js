@@ -4,6 +4,9 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
         //stores the output and answers
         var output = [];
         var ans;
+        var quest;
+        var correctAns;
+        var button;
 
 
         for (var i = 0; i < quest.length; i++) {
@@ -69,6 +72,31 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
     submitButton.onclick = function () {
         showResults(quest, quizContainer, resultsContainer);
     }
+
+        //Timer with a way to subtract when the answer is incorrect
+        (function () {
+            //How much time for quiz
+            var sec = 60;
+            function startTimer() {
+                var timer = setInterval(function () {
+                    sec--;
+                    //Start time
+                    document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+                    if (sec < 0) {
+                        clearInterval(timer);
+                        alert("Time is up!")
+                    }
+                }, 1000);
+            }
+            //timer dislay
+            document.getElementById('incorrect').addEventListener('click', function () {
+                sec -= 5;
+                document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+            });
+            startTimer();
+        })();
+
+
     // Questions list 
     var Quest = [
         {
@@ -171,9 +199,36 @@ function generateQuiz(quest, timer, counter, quizContainer, resultsContainer, su
             },
             correctAns: 'c'
         },
+        // Buttons
+        $(".theme-button").on("click", function () {
+            audioElement.play();
+        });
+    $(".pause-button").on("click", function () {
+        audioElement.pause();
+    });
+
+    // Size Buttons
+    $(".normal-button").on("click", function () {
+        captainPlanet.animate({ height: "300px" });
+    });
+    $(".grow-button").on("click", function () {
+        captainPlanet.animate({ height: "500px" });
+    });
+    $(".shrink-button").on("click", function () {
+        captainPlanet.animate({ height: "100px" });
+    });
+
+    // Visibility Buttons
+    $(".vis-button").on("click", function () {
+        captainPlanet.animate({ opacity: "1" });
+    });
+    $(".invis-button").on("click", function () {
+        captainPlanet.animate({ opacity: "0.05" });
+    });
+
     ]
 }
 
-//A timer
+
 //A Counter
 //A Submit Button
