@@ -1,8 +1,8 @@
 //Variables
 var pos = 0;
 var correct = 0;
-var test;
-var test_status;
+var quiz;
+var quiz_status;
 var question;
 var choice;
 var choices;
@@ -90,11 +90,11 @@ function get(x) {
 //function will get the questions to display 
 
 function renderQuestion() {
-    test = get("test");
+    quiz = get("quiz");
     if (pos >= questions.length) {
-        test.innerHTML = "<h2> You got " + correct + " of " + questions.length + " questions correct</h2> ";
-        get("test_status").innerHTML = "Test Completed"
-        //allows users to restart the test
+        quiz.innerHTML = "<h2> You got " + correct + " of " + questions.length + " questions correct</h2> ";
+        get("quiz_status").innerHTML = "Quiz Completed"
+        //allows users to restart the quiz
         pos = 0;
         correct = 0;
         //Stops the questions from displaying
@@ -103,7 +103,7 @@ function renderQuestion() {
     }
 }
 
-get("test_status").innerHtml = "Questions" + (pos + 1) + "of" + questions.length;
+get("quiz_status").innerHtml = "Questions" + (pos + 1) + "of" + questions.length;
 
 questions = question[pos].question;
 chA = questions[pos].a;
@@ -111,13 +111,13 @@ chA = questions[pos].b;
 chA = questions[pos].c;
 
 //Display Question
-test.innerHTML = "<h3>"; +question + "</h3>';"
+quiz.innerHTML = "<h3>"; +question + "</h3>';"
 
 //options for answer displayed and this also referenceses to the data above
-test.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chA + "</label><br>';</br>";
-test.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chB + "</label><br>';</br>";
-test.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chC + "</label><br>';</br>";
-test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chA + "</label><br>';</br>";
+quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chB + "</label><br>';</br>";
+quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chC + "</label><br>';</br>";
+quiz.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
 
 //getting the program to check the answer
 function checkAnswer() {
