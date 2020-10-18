@@ -1,5 +1,17 @@
-div#quiz{
-    border:rgb(223, 200, 223) 3px solid;
-    padding:10px 40px 40px 40px;
-    background-color:#E5FCE3;
+{
+    border:rgb(223, 200, 223) 5px solid;
+    padding:40px 40px 40px 40px;
+    background-color: rgb(219, 213, 219);
     width:50%;}
+    
+    h1{
+        text-align: center
+    }
+
+    h3{
+        text-align: center;
+    }
+
+    h2{
+        Center
+    }

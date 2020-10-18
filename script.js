@@ -4,11 +4,11 @@ var correct = 0;
 var quiz;
 var quiz_status;
 var question;
-var choice;
+var answer;
 var choices;
 var chA, chB, chC;
 var questions = [
-    // Questions list 
+    // Questions list in an array
     {
         question: "Java and Javascript the same language?",
         a: 'True',
@@ -39,7 +39,7 @@ var questions = [
         answer: 'c'
     },
     {
-        question: "who built Javascript?",
+        question: "Who built Javascript?",
 
         a: 'Steve Jobs',
         b: 'Brendan Eich',
@@ -82,60 +82,21 @@ var questions = [
         answer: 'c'
     },
 ];
-
-//turn getElementById into a function
-function get(x) {
-    return document.getElementById(x);
-}
-//function will get the questions to display 
-
-function renderQuestion() {
-    quiz = get("quiz");
-    if (pos >= questions.length) {
-        quiz.innerHTML = "<h2> You got " + correct + " of " + questions.length + " questions correct</h2> ";
-        get("quiz_status").innerHTML = "Quiz Completed"
-        //allows users to restart the quiz
-        pos = 0;
-        correct = 0;
-        //Stops the questions from displaying
-        return false;
-
+(function () {
+    var sec = 60;
+    function startTimer() {
+        var timer = setInterval(function () {
+            sec--;
+            document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
     }
-}
-
-get("quiz_status").innerHtml = "Questions" + (pos + 1) + "of" + questions.length;
-
-questions = question[pos].question;
-chA = questions[pos].a;
-chA = questions[pos].b;
-chA = questions[pos].c;
-
-//Display Question
-quiz.innerHTML = "<h3>"; +question + "</h3>';"
-
-//options for answer displayed and this also referenceses to the data above
-quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chA + "</label><br>';</br>";
-quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chB + "</label><br>';</br>";
-quiz.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chC + "</label><br>';</br>";
-quiz.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
-
-//getting the program to check the answer
-function checkAnswer() {
-    choices = document.getElementsByName("choices");
-    for (var i = 0; i < choices.length; i++);
-    if (choices[i].checked) {
-        choice = choices[i].values;
-    }
-
-    if (choice == questions[pos].answer) {
-        correct++;
-    }
-}
-//keeps track of correct answer
-correct++;
-
-//changes position of user
-pos++;
-
-//goes to next question
-renderQuestion();
+    document.getElementById('incorrect').addEventListener('click', function () {
+        sec -= 3;
+        document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+    });
+    startTimer();
+})();
