@@ -1,212 +1,120 @@
-function generateQuiz(question, timer, quizContainer, resultsContainer, submitButton) {
-
-    function showQuestion(question, quizContainer) {
-        //stores the output and answers
-
-        var question;
-        var wrongAnswer;
-        var button;
-        var correctAnswer;
-        var resultsContainer;
-        var timer;
-
-
-        quizContainer.innerHTML = output.join('');
-    }
-    function showResults(question, quizContainer, resultsContainer) {
-
-        var answerContainers = quizContainer.querySelectorAll('.answer');
-
-        //User answer to question
-        var userAnswer = '';
-        //Stores number of correct answers
-        var numcorrect = (i);
-    }
-
-    for (var i = o; i < question.length; i++) {
-
-        userAnswer = (ansContainers[i].querySelectorAll('input[name=question' + i + ']:checked') || {}).value;
-
-        if (UserAnswer === question[i].correctAnswer) {
-
-            numCorrect++;
-
-            // in answer correct purple
-            answerContainers[i].style.color = 'purple';
-
-        }
-
-        else {
-            //if answer incorrect orange
-            answerContainers[i].style.color = 'Orange';
-
-        }
-    }
-    resultsContainer.innerHtml()
-    for (var i = o; i <)
-        if (numberCorrect.isAuthenticated(funtion + output());
-
-    //Quiz Questions
-    showQuestion(question, quizContainer); {
-
-
-    }
-
-
-    //push button for results. A place for the results
-
-    submitButton.onclick = function () {
-        showResults(quest, quizContainer, resultsContainer);
-    }
-
-        //Timer with a way to subtract when the answer is incorrect
-        (function () {
-            //How much time for quiz
-            var sec = 60;
-            function startTimer() {
-                var timer = setInterval(function () {
-                    sec--;
-                    //Start time
-                    document.getElementById('timerDisplay').innerHTML = '00:' + sec;
-                    if (sec < 0) {
-                        clearInterval(timer);
-                        alert("Time is up!")
-                    }
-                }, 1000);
-            }
-            //timer dislay
-            document.getElementById('incorrect').addEventListener('click', function () {
-                sec -= 5;
-                document.getElementById('timerDisplay').innerHTML = '00:' + sec;
-            });
-            startTimer();
-        })();
-
-
+//Variables
+var pos = 0;
+var correct = 0;
+var test;
+var test_status;
+var question;
+var choice;
+var choices;
+var chA, chB, chC;
+var questions = [
     // Questions list 
-    var Quest = [
-        {
-            quest: "Java and Javascript the same language?",
-            ans: {
-                a: 'True',
-                b: 'False',
-                c: 'Some of it is the same',
+    {
+        question: "Java and Javascript the same language?",
+        a: 'True',
+        b: 'False',
+        c: 'Some of it is the same',
 
-            },
-            correctAns: 'a'
-        },
-        {
-            quest: "What web browser does not support Javascript?",
-            ans: {
+        answer: 'a'
+    },
+    {
+        question: "What web browser does not support Javascript?",
+        a: 'Lynx',
+        b: 'Konqueror',
+        c: 'Opera',
+        answer: 'a'
+    },
+    {
+        question: "What does NaN stand for in Javascript?",
+        a: 'NewandNeccesary',
+        b: 'NotaNumber',
+        c: 'None of the above',
+        answer: 'b'
+    },
+    {
+        question: "What name was Javascript developed under?",
+        a: 'Ella',
+        b: 'SnowMan',
+        c: 'Mocha',
+        answer: 'c'
+    },
+    {
+        question: "who built Javascript?",
 
-                a: 'Lynx',
-                b: 'Konqueror',
-                c: 'Opera',
-            },
-            correctAns: 'a'
-        },
-        {
-            quest: "What does NaN stand for in Javascript?",
-            ans: {
+        a: 'Steve Jobs',
+        b: 'Brendan Eich',
+        c: 'Bill Gates',
+        answer: 'b'
+    },
+    {
+        question: "How long did it take to create Javascript?",
+        a: '10 days',
+        b: '30 days',
+        c: '20 days',
+        answer: 'a'
+    },
+    {
+        question: "Where did the creater of Javascript work?",
+        a: 'Microsoft',
+        b: 'Netscape',
+        c: 'Mozilla',
+        answer: 'b'
+    },
+    {
+        question: "Javascript was developed in what year?",
+        a: '1997',
+        b: '1996',
+        c: '1995',
+        answer: 'c'
+    },
+    {
+        question: "Does Javascript have a integer data type?",
+        a: 'True',
+        b: 'False',
+        c: 'Maybe',
+        answer: 'b'
+    },
+    {
+        question: "What symbols do you use to make arrays?",
+        a: '{}',
+        b: '||',
+        c: '[]',
+        answer: 'c'
+    },
+];
 
-                a: 'NewandNeccesary',
-                b: 'NotaNumber',
-                c: 'None of the above',
-            },
-            correctAns: 'b'
-        },
-        {
-            quest: "What name was Javascript developed under?",
-            ans: {
+//turn getElementById into a function
+function get(x) {
+    return document.getElementById(x);
+}
+//function will get the questions to display 
 
-                a: 'Ella',
-                b: 'SnowMan',
-                c: 'Mocha',
-            },
-            correctAns: 'c'
-        },
-        {
-            quest: "who built Javascript?",
-            ans: {
+function renderQuestion() {
+    test = get("test");
+    if (pos >= questions.length) {
+        test.innerHTML = "<h2> You got " + correct + " of " + questions.length + " questions correct</h2> ";
+        get("test_status").innerHTML = "Test Completed"
+        //allows users to restart the test
+        pos = 0;
+        correct = 0;
+        //Stops the questions from displaying
+        return false;
 
-                a: 'Steve Jobs',
-                b: 'Brendan Eich',
-                c: 'Bill Gates',
-            },
-            correctAns: 'b'
-        },
-        {
-            quest: "How long did it take to create Javascript?",
-            ans: {
-
-                a: '10 days',
-                b: '30 days',
-                c: '20 days',
-            },
-            correctAns: 'a'
-        },
-        {
-            quest: "Where did the creater of Javascript work?",
-            ans: {
-
-                a: 'Microsoft',
-                b: 'Netscape',
-                c: 'Mozilla',
-            },
-            correctAns: 'b'
-        },
-        {
-            quest: "Javascript was developed in what year?",
-            ans: {
-
-                a: '1997',
-                b: '1996',
-                c: '1995',
-            },
-            correctAns: 'c'
-        },
-        {
-            quest: "Does Javascript have a integer data type?",
-            ans: {
-
-                a: 'True',
-                b: 'False',
-                c: 'Maybe',
-            },
-            correctAns: 'b'
-        },
-        {
-            quest: "What symbols do you use to make arrays?",
-            ans: {
-
-                a: '{}',
-                b: '||',
-                c: '[]',
-            },
-            correctAns: 'c'
-        },
-
-
-
-
-        //Click button and get it to push into the numcorrect storage
-        $(".a-button").on("click", function () {
-            audioElement.answer(); Push.numCorrect
-            if (correct)
-            
-        });
-
-    $(".b-button").on("click", function () {
-        audioElement.answer();
-
-        $(".c-button").on("click", function () {
-            audioElement.answer();
-        });
-
-
-    ]
     }
+}
 
+get("test_status").innerHtml = "Questions" + (pos + 1) + "of" + questions.length;
 
-//A Counter
-//A Submit Button
+questions = question[pos].question;
+chA = questions[pos].a;
+chA = questions[pos].b;
+chA = questions[pos].c;
+
+//Display Question
+test.innerHTML = "<h3>";+question+"</h3>';"
+
+//options for answer displayed and this also referenceses to the data above
+test.innerHTML +="<label><input type='radio' name='choices' value='A'> "+chA+"</label><br>';</br>";
+test.innerHTML +="<label><input type='radio' name='choices' value='A'> "+chB+"</label><br>';</br>";
+test.innerHTML +="<label><input type='radio' name='choices' value='A'> "+chC+"</label><br>';</br>";
+test.innerHTML +="<button onclick='checkAnswer()'>Submit Answer</button>";
