@@ -30,37 +30,14 @@
     </h1>
     <h2 id="test_status"></h2>
     <div id="test"></div>
-
+    <h3></h3>
     <P>
     <div id="timerDisplay"></div>
     <button id="incorrect">Start Game</button>
 
     </P>
-    <script>
-        //Timer with a way to subtract when the answer is incorrect
-        (function () {
-            //How much time for quiz
-            var sec = 60;
-            function startTimer() {
-                var timer = setInterval(function () {
-                    sec--;
-                    //Start time
-                    document.getElementById('timerDisplay').innerHTML = '00:' + sec;
-                    if (sec < 0) {
-                        clearInterval(timer);
-                        alert("Time is up!")
-                    }
-                }, 1000);
-            }
-            //timer dislay
-            document.getElementById('incorrect').addEventListener('click', function () {
-                sec -= 5;
-                document.getElementById('timerDisplay').innerHTML = '00:' + sec;
-            });
-            startTimer();
-        })();
+    
 
-    </script>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

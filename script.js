@@ -111,10 +111,31 @@ chA = questions[pos].b;
 chA = questions[pos].c;
 
 //Display Question
-test.innerHTML = "<h3>";+question+"</h3>';"
+test.innerHTML = "<h3>"; +question + "</h3>';"
 
 //options for answer displayed and this also referenceses to the data above
-test.innerHTML +="<label><input type='radio' name='choices' value='A'> "+chA+"</label><br>';</br>";
-test.innerHTML +="<label><input type='radio' name='choices' value='A'> "+chB+"</label><br>';</br>";
-test.innerHTML +="<label><input type='radio' name='choices' value='A'> "+chC+"</label><br>';</br>";
-test.innerHTML +="<button onclick='checkAnswer()'>Submit Answer</button>";
+test.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chA + "</label><br>';</br>";
+test.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chB + "</label><br>';</br>";
+test.innerHTML += "<label><input type='radio' name='choices' value='A'> " + chC + "</label><br>';</br>";
+test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+
+//getting the program to check the answer
+function checkAnswer() {
+    choices = document.getElementsByName("choices");
+    for (var i = 0; i < choices.length; i++);
+    if (choices[i].checked) {
+        choice = choices[i].values;
+    }
+
+    if (choice == questions[pos].answer) {
+        correct++;
+    }
+}
+//keeps track of correct answer
+correct++;
+
+//changes position of user
+pos++;
+
+//goes to next question
+renderQuestion();
