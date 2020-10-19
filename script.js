@@ -1,75 +1,16 @@
-//starting the Quiz
-function buildQuiz() {
-    // stores the HTML output
-    const output = [];
+//variables
+var incorrect;
+var startQuiz;
+var quiz;
+var results;
+var submit;
+var quizContainer;
+var resultsContainer;
+var theQuestions;
+var question
+var answer
+var correctAnswer
 
-    // helps display questions
-    theQuestions.forEach(
-        (currentQuestion, questionNumber) => {
-
-            // stores possible answers
-            const answers = [];
-
-            for (letter in currentQuestion.answers) {
-
-                // add radio button
-                answers.push(
-                    `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-                );
-            }
-            output.push(
-                `<div class="slide">
-                  <div class="question"> ${currentQuestion.question} </div>
-                  <div class="answers"> ${answers.join("")} </div>
-                </div>`
-            );
-            // push questions and answers
-
-        }
-    );
-    quizContainer.innerHTML = output.join('');
-}
-//
-function showResults() {
-
-    // puts together the info
-    const answerContainers = quizContainer.querySelectorAll('.answers');
-
-    // correct answers
-    let numCorrect = 0;
-
-    theQuestions.forEach((currentQuestion, questionNumber) => {
-
-        // find selected answer
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question'${questionNumber}]':checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-
-        //Correct answer gets added to total of correct answers
-        if (userAnswer === currentQuestion.correctAnswer) {
-            numCorrect++;
-
-            // correct  color light green
-            answerContainers[questionNumber].style.color = 'lightgreen';
-        }
-        else {
-            //incorrect color pink
-            answerContainers[questionNumber].style.color = 'pink';
-        }
-    });
-
-    // number of correct answers
-    resultsContainer.innerHTML = `${numCorrect} out of ${theQuestions.length}`;
-}
-
-//constant variables
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
 var theQuestions = [
     // Questions list in an array
     {
@@ -172,6 +113,74 @@ var theQuestions = [
     },
 ];
 
+function Quiz() {
+    // stores the HTML output
+    const output = [];
+
+    // helps display questions
+    theQuestions.forEach(
+        (currentQuestion, questionNumber) => {
+
+            // stores possible answers
+            const answers = [];
+
+            for (letter in currentQuestion.answers) {
+
+                // add radio button
+                answers.push(
+                    `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+                );
+            }
+            output.push(
+                `<div class="slide">
+                  <div class="question"> ${currentQuestion.question} </div>
+                  <div class="answers"> ${answers.join("")} </div>
+                </div>`
+            );
+            // push questions and answers
+
+        }
+    );
+    quizContainer.innerHTML = output.join('');
+}
+//
+function showResults() {
+
+    // puts together the info
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // correct answers
+    let numCorrect = 0;
+
+    theQuestions.forEach((currentQuestion, questionNumber) => {
+
+        // find selected answer
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question'${questionNumber}]':checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+        //Correct answer gets added to total of correct answers
+        if (userAnswer === currentQuestion.correctAnswer) {
+            numCorrect++;
+
+            // correct  color light green
+            answerContainers[questionNumber].style.color = 'lightgreen';
+        }
+        else {
+            //incorrect color pink
+            answerContainers[questionNumber].style.color = 'pink';
+        }
+    });
+
+    // number of correct answers
+    resultsContainer.innerHTML = `${numCorrect} out of ${theQuestions.length}`;
+}
+
+
 //The loop for the Questions
 function theQuestions(currentQuestion, questionNumber) {
     const answers = [];
@@ -195,6 +204,27 @@ function theQuestions(currentQuestion, questionNumber) {
     );
 
 };
+
+(function () {
+    var sec = 60;
+    function startTimer() {
+        console.log('timer suppose to go')
+        var timer = setInterval(function () {
+            sec--;
+            document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!")
+            }
+        }, 1000);
+    }
+    document.getElementById('startQuiz').addEventListener('click', function () {
+        sec -= 5;
+        document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+    });
+    startTimer();
+})();
+
 
 
 
