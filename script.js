@@ -1,16 +1,12 @@
 //variables
-var incorrect;
-var startQuiz;
+var incorrect = "";
 var quiz;
-var results;
-var submit;
-var quizContainer;
-var resultsContainer;
-var theQuestions;
-var question
-var answer
-var correctAnswer
-
+var quizContainer = "";
+var resultsContainer = "";
+var output = "";
+var question;
+var answer;
+var correctAnswer;
 var theQuestions = [
     // Questions list in an array
     {
@@ -113,118 +109,132 @@ var theQuestions = [
     },
 ];
 
-function Quiz() {
+function quiz() {
     // stores the HTML output
-    const output = [];
+    const output = "";
 
     // helps display questions
     theQuestions.forEach(
-        (currentQuestion, questionNumber) => {
+        (currentQuestion, question => {
 
-            // stores possible answers
+            // pulls answers
             const answers = [];
 
             for (letter in currentQuestion.answers) {
 
-                // add radio button
+                // add radio button to push for the answer
                 answers.push(
                     `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
+              <input type="radio" name="question${question}" value="${letter}">
               ${letter} :
               ${currentQuestion.answers[letter]}
             </label>`
                 );
+                const newLocal = quizContainer.innerHTML = output.join("");
             }
-            output.push(
-                `<div class="slide">
-                  <div class="question"> ${currentQuestion.question} </div>
-                  <div class="answers"> ${answers.join("")} </div>
-                </div>`
-            );
-            // push questions and answers
+
+            //The questions will fade in and fade out one question at a time
+            var totalQuestions = $('question').size();
+            var currentQuestion = 0;
+
+            $questions = $('questions');
+
+            $questions.hide();
+
+            $($question.get(currentQuestion)).fadeOut(function () {
+
+                currentQuestion = currentQuestion + 1;
+
+                if (currentQuestion == totalQuestions) {
+                    var result = numcorrect()
+                    alert(result);
+                }
+                $(question.get(currentQuestion)).fadeIn();
+            })
 
         }
-    );
-    quizContainer.innerHTML = output.join('');
-}
-//
-function showResults() {
+        )
+    )
 
-    // puts together the info
-    const answerContainers = quizContainer.querySelectorAll('.answers');
+    //
+    function showResults() {
 
-    // correct answers
-    let numCorrect = 0;
+        // puts together the info
+        const answerContainers = quizContainer.querySelectorAll('.answers');
 
-    theQuestions.forEach((currentQuestion, questionNumber) => {
+        // correct answers
+        let numCorrect = 0;
 
-        // find selected answer
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question'${questionNumber}]':checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        theQuestions.forEach((currentQuestion, questionNumber) => {
 
-        //Correct answer gets added to total of correct answers
-        if (userAnswer === currentQuestion.correctAnswer) {
-            numCorrect++;
+            // find selected answer
+            const answerContainer = answerContainers[questionNumber];
+            const selector = `input[name=question'${questionNumber}]':checked`;
+            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-            // correct  color light green
-            answerContainers[questionNumber].style.color = 'lightgreen';
-        }
-        else {
-            //incorrect color pink
-            answerContainers[questionNumber].style.color = 'pink';
-        }
-    });
+            //Correct answer gets added to total of correct answers
+            if (userAnswer === currentQuestion.correctAnswer) {
+                numCorrect++;
 
-    // number of correct answers
-    resultsContainer.innerHTML = `${numCorrect} out of ${theQuestions.length}`;
-}
+                // correct  color light green
+                answerContainers[questionNumber].style.color = 'lightgreen';
+            }
+            else {
+                //incorrect color pink
+                answerContainers[questionNumber].style.color = 'pink';
+            }
+        });
+
+        // number of correct answers
+        resultsContainer.innerHTML = `${numCorrect} out of ${theQuestions.length}`;
+    }
 
 
-//The loop for the Questions
-function theQuestions(currentQuestion, questionNumber) {
-    const answers = [];
+    //The loop for the Questions
+    function theQuestions(currentQuestion, questionNumber) {
+        const answers = [];
 
-    for (letter in currentQuestion.answers) {
+        for (letter in currentQuestion.answers) {
 
-        // radio button
-        answers.push(
-            `<label>
+            // radio button
+            answers.push(
+                `<label>
           <input type="radio" name="question${questionNumber}" value="${letter}">
           ${letter} :
           ${currentQuestion.answers[letter]}
         </label>`
-        );
-    }
+            );
+        }
 
-    // add this question and its answers to the output
-    output.push(
-        `<div class="question"> ${currentQuestion.question} </div>
+        // add this question and its answers to the output
+        output.push(
+            `<div class="question"> ${currentQuestion.question} </div>
       <div class="answers"> ${answers.join('')} </div>`
-    );
+        );
 
-};
+    };
 
-(function () {
-    var sec = 60;
-    function startTimer() {
-        console.log('timer suppose to go')
-        var timer = setInterval(function () {
-            sec--;
+    (function () {
+        var sec = 60;
+        function startTimer() {
+            console.log('timer suppose to go')
+            var timer = setInterval(function () {
+                sec--;
+                document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+                if (sec < 0) {
+                    clearInterval(timer);
+                    alert("Time is up!")
+                }
+            }, 1000);
+        }
+        document.getElementById('startQuiz').addEventListener('click', function () {
+            sec -= 5;
             document.getElementById('timerDisplay').innerHTML = '00:' + sec;
-            if (sec < 0) {
-                clearInterval(timer);
-                alert("Time is up!")
-            }
-        }, 1000);
-    }
-    document.getElementById('startQuiz').addEventListener('click', function () {
-        sec -= 5;
-        document.getElementById('timerDisplay').innerHTML = '00:' + sec;
+        });
+        startTimer();
     });
-    startTimer();
-})();
 
+}
 
 
 
