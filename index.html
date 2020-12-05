@@ -15,22 +15,25 @@
 <!--Beginning of body-->
 
 <body>
-    <h1>Javascript Quiz</h1>
-    <h2>Lets Play!!!</h2>
-    <!--Javascript link-->
-    <script src="script.js"></script>
-
-    <h3>
-        <div id="timerDisplay"></div>
-    </h3>
-
-    <h4>
+    <!-- <h1>Javascript Quiz</h1>
+    <h2>Lets Play!!!</h2> -->
+    <div class="container">
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <buttons id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+                </button>
         </div>
-        <button id="start">Start Quiz</button>
-        <button id="next">Next Question</button>
-        <button id="submit">Submit Quiz</button>
-        <div id="results"></div>
-    </h4>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">next</button>
+        </div>
+    </div>
+    <!--javascript link-->
+    <script src="script.js"></script>
 </body>
 
 </html>
