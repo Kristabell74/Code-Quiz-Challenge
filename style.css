@@ -1,16 +1,10 @@
-    h1{
-        text-align: center;
-    }
+h1{
+    text-align: center;
+}
 
-    h2{
-        text-align: center;
-    }
-
-    :root{
-        --hue-neutral: 200;
-        --hue-wrong: 0;
-        --hue-correct: 145; 
-    } 
+h2{
+    text-align: center;
+}
 
 body{
     padding: 0;
@@ -23,14 +17,6 @@ body{
     align-items: center;
     box-sizing: content-box;
     background-color: hsl(var(--hue), 100%, 20%);
-}
-
-body.correct{
-    --hue: var(--hue-correct);
-}
-
-body.wrong {
-    --hue:var(--hue-wrong)
 }
 
 .container{

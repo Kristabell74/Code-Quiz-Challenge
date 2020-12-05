@@ -90,3 +90,15 @@
 // function selectAnswer(){
 
 // }
+
+// CSS
+// .body{
+//background-color: white;
+// }
+// body.correct{
+//     background-color: green;
+//  }
+
+//  body.wrong {
+//      background-color: red;
+//  }
