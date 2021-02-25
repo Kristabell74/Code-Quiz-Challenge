@@ -73,13 +73,13 @@
 
 // }
 // quiz();
-// const startButton = document.getElementById('start-btn')
+// const startBtn = document.getElementById('start-btn')
 
-// startButton.addEventlistener('click', startGame)
+// startBtn.addEventlistener('click', startGame)
 
 // function startGame(){
 
-//     startButton.classList.add('hide')
+//     startBtn.classList.add('hide')
 
 // }
 
@@ -102,3 +102,11 @@
 //  body.wrong {
 //      background-color: red;
 //  }
+
+/* body.correct{
+background-color: seagreen;
+} */
+
+/* body.wrong{
+background-color: rgb(151, 44, 44);
+} */
