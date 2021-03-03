@@ -62,22 +62,12 @@ body{
 }
 
 
-/* .controls{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-} */
 
 .hide {
   display: none;
 }
 
-/* .end-btn, .try-btn {
-    font-size: 25px;
-    font-style: bold;
-    padding: 10px 20px;
-} */
 
 .btn.correct{
     background-color: green;
