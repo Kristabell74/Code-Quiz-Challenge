@@ -1,7 +1,7 @@
 const startBtn = document.getElementById('start-btn');
 const nextBtn = document.getElementById('next-btn');
-const questionContainer = document.getElementById('question-container');
-const questionElement = document.getElementById('question');
+const questionCont = document.getElementById('question-container');
+const questionEl = document.getElementById('question');
 const answerBtns = document.getElementById('answer-btns')
 
 
@@ -12,12 +12,12 @@ startBtn.addEventListener('click', startGame)
 
 nextBtn.addEventListener('click', () => {
     currentQuestion++
-    NextQuestion()
+    NextQuest()
 })
 
 
 function showWords() {
-    questionElement.innerText = startWords.StartWords
+    questionEl.innerText = startWords.StartWords
 }
 
 function startGame() {
@@ -28,23 +28,23 @@ function startGame() {
     //starts out on the first question of the question array
     currentQuestion = 0
     //puts questions back into the array
-    questionContainer.classList.remove('hide')
+    questionCont.classList.remove('hide')
     nextBtn.classList.remove('hide')
-    NextQuestion()
+    NextQuest()
 }
 
 
 //brings up the next question and resets the screen for the next question
-function NextQuestion() {
+function NextQuest() {
     document.getElementById("answer-btns").innerHTML = "";
     document.getElementById("question").innerHTML = "";
     //states the status of the  question that needs to be reset when bringing up the next question.
-    showQuestion(randomQuestions[currentQuestion]);
+    showQuest(randomQuestions[currentQuestion]);
 
 }
 // shows the questions and creates the answer buttons in the JS
-function showQuestion(question) {
-    questionElement.innerText = question.question
+function showQuest(question) {
+    questionEl.innerText = question.question
     question.answers.forEach(answer => {
         const btn = document.createElement('answerBtns')
         btn.innerText = answer.text
@@ -79,8 +79,14 @@ function selectAnswer(e) {
     }
 }
 
-// answerBtns.addEventListener('click', selectAnswer)
-//     if()
+//document.getElementById(correct, "true");
+
+
+{
+    console.log("This answer is correct!!!")
+
+}
+
 
 const questions = [
     // Questions list in an array
@@ -185,3 +191,14 @@ const questions = [
     },
 
 ]
+
+var timer = 60;
+var loadTimer = setInterval(function () {
+    if (timer <= 0) {
+        clearInterval(loadTimer);
+        document.getElementById("timed").innerHTML = "Times up!!!";
+    } else {
+        document.getElementById("timed").innerHTML = timer + " Seconds Remaining";
+    }
+    timer -= 1;
+}, 1000);

@@ -42,17 +42,10 @@ body{
 
 } 
 
-.answerBtns{
-    background-color: white;
-    border-color: black;
-    padding: 10px;
-    
-    
-} 
+
 .btn:hover {
     border-color: blue;
 }
-
 
 
 .start-btn, .next-btn {
@@ -62,17 +55,7 @@ body{
 }
 
 
-
-
 .hide {
   display: none;
 }
 
-
-.btn.correct{
-    background-color: green;
-}
-
-.btn.wrong{
-background-color: red;
-}

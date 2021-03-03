@@ -26,14 +26,9 @@ https://www.quora.com/What-are-some-interesting-facts-in-JavaScript
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript
 
-https://www.codemahal.com/video/javascript-quiz-tutorial/
-
 https://www.coursereport.com/blog/5-javascript-terms-beginners-need-to-know
 
 https://www.quora.com/What-is-rendering-in-JavaScript
-
-
-https://www.w3schools.com/jsref/jsref_return.asp
 
 https://simplestepscode.com/javascript-quiz-tutorial/
 
