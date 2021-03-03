@@ -1,16 +1,25 @@
 # Code-Quiz-Challenge
-Code Quiz Challenge
-
 Kristabell Johnson
+
+Email: bell77iam@gmail.com
+
+Link to Github: https://github.com/Kristabell74/Code-Quiz-Challenge.git
+
+WebLink:  https://kristabell74.github.io/Code-Quiz-Challenge/
 
 Why Built:
 
 Built to challenge myself into creating a simple quiz for people to play.
 		
+How Built:
 
 A repository was created in Github. Then using the terminal password generator homework. Set up the pages for the data. Make questions for the game by looking them up on Google. Create a button to start the quiz. Create a 60 second timer that takes 5 seconds off every time and answer is incorrect. The game needs to be able to keep track of the high score. This is what I am trying to build As I worked I would push the information into Github
 
-Usage:
+
+
+Usage: 
+
+A simple quiz that the user can play.
 
 Credits:
 
