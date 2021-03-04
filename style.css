@@ -49,6 +49,7 @@ body{
 
 
 .start-btn, .next-btn {
+    color: rgb(196, 90, 90);
     font-size: 25px;
     font-style: bold;
     padding: 10px 15px;
@@ -59,3 +60,11 @@ body{
   display: none;
 }
 
+container1{
+    margin-top:8px;
+    border-style: inset;
+    border-color: rgb(196, 90, 90);
+    border-width: 5px;
+    border-radius: 20px;
+    padding: 5px;
+}
